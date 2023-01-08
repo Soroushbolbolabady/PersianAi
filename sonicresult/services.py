@@ -17,7 +17,7 @@ def result(input_payload):
     headers = {
         'accept': 'application/json',
         'content-type': 'application/json',
-        'X-API-KEY': '229b44c4-0529-4c42-b109-069012218932'
+        'X-API-KEY': '76363ef0-bf81-4364-91d2-d1d059f35327'
     }
     response = requests.post(url, json=payload, headers=headers)
 
@@ -32,5 +32,7 @@ def translator_to_fa(text):
     return fa_translated
 
 
-def main():
-    translator_to_fa(result(translator_to_en("چشم سوم")))
+def main(text):
+    output = translator_to_fa(result(translator_to_en(text)))
+    return output
+
