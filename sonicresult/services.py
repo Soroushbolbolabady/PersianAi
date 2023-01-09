@@ -33,6 +33,4 @@ def translator_to_fa(text):
 
 
 def main(text):
-    output = translator_to_fa(result(translator_to_en(text)))
-    return output
-
+    return translator_to_fa(result(translator_to_en(text)))

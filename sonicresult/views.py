@@ -1,8 +1,8 @@
-from django.shortcuts import render
 from django.views.generic import TemplateView, FormView
 from django.urls import reverse_lazy
-from .services import main
+from .models import AiData
 from .forms import SearchArticleForm
+from django.contrib.auth.models import User
 
 
 # Create your views here
@@ -13,15 +13,18 @@ class SearchArticleView(FormView):
     success_url = reverse_lazy('sonicresult:result')
 
     def form_valid(self, form):
-        form.send_to_ai()
+        search = form.save(commit=False)
+        search.user = User.objects.get(username=self.request.user)
+        form.save()
         return super().form_valid(form)
 
 
 class ResultView(TemplateView):
     template_name = 'sonicresult/result.html'
 
-    def get_context_data(self, *args, **kwargs):
+    def get_context_data(self, **kwargs):
         context = {
-            'result': main
+            'result': AiData.objects.latest('pk')
+
         }
         return context
