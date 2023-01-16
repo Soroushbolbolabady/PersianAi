@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from accounts.models import CustomUser
 from .services import main
 
 
@@ -7,10 +7,11 @@ from .services import main
 
 
 class AiData(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     to_ai = models.TextField()
     from_ai = models.TextField()
 
     def save(self , *args , **kwargs):
         self.from_ai = main(self.to_ai)
         super(AiData, self).save(*args,**kwargs)
+    
