@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'sonicresult.apps.SonicresultConfig',
     'accounts.apps.AccountsConfig',
+    'credit.apps.CreditCongig',
     
     
     'django.contrib.admin',
