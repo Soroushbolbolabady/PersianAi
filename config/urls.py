@@ -19,7 +19,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('' , include('sonicresult.urls')),
+    path('article/' , include('sonicresult.urls')),
     path('accounts/', include('accounts.urls')),
-    path('credit/' , include('credit.urls'))
+    path('credit/' , include('credit.urls')),
+    path('' , include('home.urls'))
 ]
