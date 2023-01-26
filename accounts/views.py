@@ -16,7 +16,7 @@ def sign_in(request):
 			if user is not None :
 				login(request , user)
 				messages.success(request , f'Welcome {email}')
-				return redirect('sonicresult:search_form')
+				return redirect('home:home')
 	
 		else:
 			form = SignInForm()
@@ -25,7 +25,7 @@ def sign_in(request):
 		}
 		return render(request , 'accounts/sign_in.html',context)
 	else:
-		return redirect('sonicresult:search_form')
+		return redirect('home:home')
 
 def sign_up(request):
 	if not request.user.is_authenticated:
@@ -35,7 +35,7 @@ def sign_up(request):
 			if form.is_valid:
 				user = form.save()
 				login(request , user)
-				return redirect('sonicresult:search_form')
+				return redirect('home:home')
 		else:
 			form = CustomUserCreationForm()
 	
@@ -44,7 +44,7 @@ def sign_up(request):
 		}
 		return render(request , 'accounts/sign_up.html' , context)
 	else:
-		return redirect('sonicresult:search_form')
+		return redirect('home:home')
 
 def sign_out(request):
 	logout(request)
