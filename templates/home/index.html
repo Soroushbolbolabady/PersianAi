@@ -1,1 +1,14 @@
 {% extends 'home/base.html' %}
+
+{% block title %}
+	<title>خانه</title>
+{% endblock %}
+
+
+{% block main %}
+	<div class="container-fluid">
+		<h1 class="h1 p-3"> به اینجا خوش آمدید! </h1>
+		<h4> برای استفاده از سایت ابتدا <a href="{% url 'accounts:sign_in' %}"> وارد شوید</a>. </h4>
+	</div>
+
+{% endblock %}

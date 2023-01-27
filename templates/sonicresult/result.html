@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Test</title>
-</head>
-<body>
-    <h1>Hello World!</h1>
+{% extends 'home/base.html' %}
+
+
+{% block title %}
+    <title>پاسخ</title>
+{% endblock %}
+
+
+{% block main %}
     <h4>{{result.from_ai}}</h4>
 
-</body>
-</html>
+{% endblock %}

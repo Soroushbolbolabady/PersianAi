@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Search</title>
-</head>
-<body>
-    <h1>Hello</h1>
+{% extends 'home/base.html' %}
+
+
+{% block title %}
+    <title>پرسش</title>
+{% endblock %}
+
+
+
+{% block main %}
     <form method="POST" >
         {% csrf_token %}
         <p>Text</p>
@@ -13,6 +15,4 @@
         <input type="submit" name="Submit">
 
     </form>
-
-</body>
-</html>
+{% endblock %}

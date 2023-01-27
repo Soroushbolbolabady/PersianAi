@@ -1,6 +1,12 @@
 {% extends 'home/base.html' %}
 
 
+{% block title %}
+	<title>ورود</title>
+{% endblock %}
+
+
+
 {% block main %}
 		<form method="POST">
 		{% csrf_token %}
