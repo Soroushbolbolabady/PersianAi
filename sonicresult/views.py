@@ -2,8 +2,7 @@ from django.views.generic import TemplateView, FormView
 from django.urls import reverse_lazy
 from .models import AiData
 from .forms import SearchArticleForm
-from django.contrib.auth.models import User
-
+from accounts.models import CustomUser
 
 # Create your views here
 
@@ -14,7 +13,7 @@ class SearchArticleView(FormView):
 
     def form_valid(self, form):
         search = form.save(commit=False)
-        search.user = User.objects.get(username=self.request.user)
+        search.user = CustomUser.objects.get(email=self.request.user)
         form.save()
         return super().form_valid(form)
 
