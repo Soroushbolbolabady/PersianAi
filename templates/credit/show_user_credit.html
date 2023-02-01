@@ -1,0 +1,14 @@
+{% extends 'home/base.html' %}
+
+{% block title %}
+<title>موجودی</title>
+{% endblock %}
+
+
+{% block main %}
+
+ 
+	<h1>{{user_credit.amount_credit}}</h1>
+	<a href="{% url 'credit:increase_user_credit' %}"> افزایش موجودی </a>
+
+{% endblock %}

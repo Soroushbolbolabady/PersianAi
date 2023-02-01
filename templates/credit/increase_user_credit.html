@@ -1,0 +1,23 @@
+{% extends 'home/base.html' %}
+
+
+{% block title %}
+<title>افزایش موجودی</title>
+{% endblock %}
+
+
+
+{% block main %}
+
+<form method="POST">
+	{% csrf_token %}
+
+	{{ form.as_p }}
+
+	<input type="submit" name="Submit">
+</form>
+
+{% endblock %}
+
+
+
